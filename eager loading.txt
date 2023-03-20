@@ -1,0 +1,37 @@
+absoute screen k according work krta hay
+relative simply like p tag
+fixed scroll down krtay huway fixed rehta hay upr nahi jata
+
+
+lasy loading
+
+agr 10 posts hay to pehlay 10 posts kelye query karega or phir phir 10 relationships data kelye  query kareag or yahi n+1 problem kehlata hay
+
+to eager loading is problem ko  hl krdeta hay  with k through
+
+1st method:
+conrroller k andr agr karengay 
+to aisay karengay:
+$post=post::with('category yaani funtion name':id,name,about)->get();
+jo categories table k colunms k name hongay wahi lengay jo jo hm lena chahtay hay;
+return response ($post);
+
+
+
+
+
+
+or 2nd method:
+$post=post::all();
+return response ($post,200);
+
+post model k andr  categories table k colunms
+protected $with=['posts:id,category_name,category_about'];
+
+or category model k andr posts table k colunms
+protected $with=['posts:id,post_name,'post_title,'post_body'];
+
+
+
+tutorail link
+https://www.youtube.com/watch?v=BHIjYpvDHW8
